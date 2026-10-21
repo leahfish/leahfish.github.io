@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Spotify Taste Analysis &amp; Playlist Prediction Model</title>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Open+Sans:400,400i,600" rel="stylesheet">
+<style>
+body{background:#010e1b;color:#e6ecf5;font-family:"Open Sans",sans-serif;margin:0;padding:30px 25px;}
+h1{font-family:"Poppins",sans-serif;color:#12d640;font-size:24px;margin-bottom:4px;}
+h2{font-family:"Poppins",sans-serif;color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:1px;margin:22px 0 8px 0;}
+p{line-height:1.7;font-size:15px;color:#cfd7e6;}
+a{color:#52b69a;}
+.sub{color:#9fb0c9;font-size:13px;margin-bottom:20px;}
+.star{background:#09203a;border-radius:6px;padding:14px 18px;margin-bottom:12px;}
+</style>
+</head>
+<body>
+<h1>Spotify Taste Analysis &amp; Playlist Prediction Model</h1>
+<div class="sub">Wake Forest MSBA &middot; Personal Portfolio Project &middot; Python, scikit-learn &middot; Fall 2026 &middot; <a href="https://github.com/leahfish/Spotify-Stats" target="_blank">View on GitHub</a></div>
+<div class="star"><h2>Situation</h2><p>I wanted to see what 11 years of my own Spotify Liked Songs (5,261 songs, October 2015 to October 2026) and 63 playlists could say about how my taste has changed. Spotify has removed track popularity, artist genres, and audio features for new apps, so the data I needed had to be rebuilt from other sources.</p></div>
+<div class="star"><h2>Task</h2><p>Build a clean dataset from scratch, analyze how my listening has shifted over time, and train a model that predicts which of my playlists a given song belongs in, with validation honest enough to trust the results.</p></div>
+<div class="star"><h2>Action</h2><p>I pulled my library from the Spotify Web API, then filled the gaps with audio features from ReccoBeats and listener counts and tags from Last.fm, matching songs on artist and title with fallback rules for remaster and "feat." suffixes. I merged 449 duplicate saves and engineered 99 columns covering genre, mood, popularity, and listening behavior. For the playlist model, I collapsed duplicate versions of the same song, locked away a 15% test set with no artist overlap, kept all feature building inside the training folds, and replaced a leaky artist-history feature with a cleaner version. I set the model selection rule before looking at the test set.</p></div>
+<div class="star"><h2>Result</h2><p>Pop fell from about 60% of what I liked in 2015-16 to 14% in 2026, while the mood of my music stayed steady and its energy moved. A clustering of my songs found four taste groups, though they overlap enough to read as regions rather than separate boxes. The playlist model picks the right playlist first about 61% of the time on unseen artists in cross-validation (89% within its top three), compared with 19% for always guessing the biggest playlist. On the locked final test it scored 55% top-1 and 84% top-3, lower than cross-validation, and I report it as it came out. The findings describe one person's library, and about 30% of songs lack audio features, so I treat the results as patterns in my own taste rather than claims about music in general.</p></div>
+</body>
+</html>
