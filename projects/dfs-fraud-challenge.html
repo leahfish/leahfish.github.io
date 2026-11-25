@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>DFS Fraud Analytics Challenge: 2nd Place</title>
+<link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Open+Sans:400,400i,600" rel="stylesheet">
+<style>
+body{background:#010e1b;color:#e6ecf5;font-family:"Open Sans",sans-serif;margin:0;padding:30px 25px;}
+h1{font-family:"Poppins",sans-serif;color:#12d640;font-size:24px;margin-bottom:4px;}
+h2{font-family:"Poppins",sans-serif;color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:1px;margin:22px 0 8px 0;}
+p{line-height:1.7;font-size:15px;color:#cfd7e6;}
+a{color:#52b69a;}
+.sub{color:#9fb0c9;font-size:13px;margin-bottom:20px;}
+.star{background:#09203a;border-radius:6px;padding:14px 18px;margin-bottom:12px;}
+</style>
+</head>
+<body>
+<h1>Deacon Financial Services Fraud Analytics Challenge: 2nd Place</h1>
+<div class="sub">Wake Forest MSBA &middot; BAN 6036 &middot; Team of four &middot; Python, LightGBM &middot; November 2026</div>
+<div class="star"><h2>Situation</h2><p>Deacon Financial Services (DFS) launched a signup bonus and applications jumped 4.7x, from 254 to 1,198 a day. The fraud rate on new accounts rose from 4.4% to 7.1%, and the manual review team was stretched to 4.8x its usual workload, with the backlog growing from 44 to 194 cases. DFS needed a way to stop fraud without turning away the good customers the bonus was meant to attract.</p></div>
+<div class="star"><h2>Task</h2><p>With three teammates (Addison Paradise, Alex Thompson, and Dane Stewart), build a new-account fraud decision model for the DFS steering committee and turn it into a recommendation the business could act on. We presented to our professors first, were selected to present to a panel of industry expert judges, and placed 2nd of 14 teams.</p></div>
+<div class="star"><h2>Action</h2><p>Our team interviewed stakeholders, scoped the project, cleaned the data, engineered features, and built and compared six models: XGBoost, random forest, regularized logistic regression, logistic regression, a decision tree, and a final LightGBM model tuned with Optuna. The data covered 225,084 applications and 82 signals. We removed the newest seven weeks because fraud labels take weeks to confirm, and split train and test by date (75/25) so the test mirrored real use. We used the model to design a three-tier policy: auto-accept, manual review, or auto-deny, with review capped at 220 cases a day to match what the review team can handle. I presented the cost results, our recommendations, what we needed from DFS, and the next steps and decision ask. Dane presented the model slides.</p></div>
+<div class="star"><h2>Result</h2><p>The final LightGBM model reached a cross-validated AUC of 0.849 and about 0.87 on the held-out test set. On that test set, the three-tier policy sends 85% of fraud to review or denial while auto-accepting 70% of good applications. Under our planning assumptions, we project fraud-related cost falling from $3.0M to $1.1M a month, a 64% reduction of about $1.9M. Those figures rest on assumptions we stated openly: a flat $1,200 per missed fraud, $82.76 per turned-away customer, and reviewers who are always right. We also noted that review capacity is scheduled rather than actual, and that we had no data on DFS's current model to compare against. Our recommendation was to approve a shadow-mode launch, delay the bonus payout, cap manual review at 220 cases a day, and stop abuse before it reaches the review queue.</p></div>
+</body>
+</html>
